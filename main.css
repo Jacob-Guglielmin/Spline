@@ -1,0 +1,283 @@
+body {
+    margin: 0;
+    background-color: #141e2b;
+    font-family: Raleway;
+    color: #e0fbfc;
+}
+
+input[type="range"] {
+    cursor: pointer;
+    appearance: none;
+}
+
+/*  Why do I need to have this twice instead of using a comma?
+
+    Great question! Who knows! */
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    background: #e0fbfc;
+    border: none;
+    width: 3vh;
+    height: 3vh;
+    border-radius: 4vh;
+}
+input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    background: #e0fbfc;
+    border: none;
+    width: 3vh;
+    height: 3vh;
+    border-radius: 4vh;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 4vh;
+    height: 3vh;
+}
+input[type="checkbox"] {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3vh;
+    height: 3vh;
+    border-radius: 5px;
+    background: #e0fbfc;
+}
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    border-color: #e0fbfc;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    left: 50%;
+    top: 45%;
+    height: 50%;
+    width: 25%;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+input:hover ~ .checkmark {
+    background: #15cbd1;
+}
+input:checked ~ .checkmark {
+    background: #ee6c4d;
+}
+input:checked ~ .checkmark::after {
+    display: block;
+}
+
+#header {
+    background-color: #98c1d9;
+    color: #293241;
+    width: 100vw;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 10vw 1fr 10vw;
+}
+
+#title {
+    width: 100%;
+    text-align: center;
+    font-size: 6vh;
+    margin: auto;
+    grid-column: 2;
+}
+
+#mainContainer {
+    position: absolute;
+    left: 0;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 15vw 1fr 15vw;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#canvas {
+    grid-column: 2;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #141e2b;
+}
+
+#showControlPointsContainer {
+    position: absolute;
+    left: 15vw;
+    top: 0;
+    border-bottom-right-radius: 15px;
+    border-right: 2px solid #e0fbfc;
+    border-bottom: 2px solid #e0fbfc;
+    padding: 2vh;
+    font-size: 2.5vh;
+    background-color: #141e2b;
+}
+
+#controls {
+    position: absolute;
+    left: 15vw;
+    bottom: 0;
+    border-top-right-radius: 15px;
+    border-right: 2px solid #e0fbfc;
+    border-top: 2px solid #e0fbfc;
+    padding: 2vh;
+    font-size: 2.5vh;
+    background-color: #141e2b;
+}
+
+#bottomRightContent {
+    position: absolute;
+    right: 15vw;
+    bottom: 0;
+    border-top-left-radius: 15px;
+    border-left: 2px solid #e0fbfc;
+    border-top: 2px solid #e0fbfc;
+    padding: 2vh;
+    font-size: 2.5vh;
+    background-color: #141e2b;
+    align-items: center;
+}
+
+#presetMenu {
+    grid-column: 1;
+    border-right: 2px solid #e0fbfc;
+    user-select: none;
+}
+
+#presetList {
+    line-height: 4vh;
+    font-size: 2.5vh;
+    padding-left: max(2vw, 3vh);
+    margin-right: 1vw;
+}
+
+#presetList li {
+    cursor: pointer;
+}
+
+#presetList li.selected {
+    color: #ee6c4d;
+}
+
+#presetList li:not(.selected) {
+    color: #e0fbfc;
+}
+
+#presetList li:not(.selected):hover {
+    color: #15cbd1;
+}
+
+#infoBox {
+    grid-column: 3;
+    border-left: 2px solid #e0fbfc;
+}
+
+#informationContainer {
+    width: 100%;
+    height: calc(68.5vh - 8px);
+    border-bottom: 2px solid #e0fbfc;
+    overflow-y: auto;
+}
+
+#infoTitle {
+    margin: 2vh;
+    font: 3.5vh Raleway;
+}
+
+#infoContent {
+    margin: 2vh;
+    margin-top: 0;
+    font-size: 2.1vh;
+    line-height: 2.75vh;
+}
+
+#infoContent ul {
+    padding-left: 1em;
+}
+
+#infoContent li:not(:last-child) {
+    margin-bottom: 1.5vh;
+}
+
+#animationBox {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 2px solid #e0fbfc;
+}
+
+#posValueDisplay {
+    font: 3vh Roboto-Mono;
+    width: 100%;
+    text-align: center;
+    margin: 2vh;
+}
+
+#posValueSlider {
+    background: #ee6c4d;
+    width: 80%;
+    height: 2vh;
+    border-radius: 8px;
+    outline: none;
+}
+
+#animateButton {
+    background-color: transparent;
+    border: 3px solid #98c1d9;
+    border-radius: 1vw;
+    width: 80%;
+    height: 8vh;
+    cursor: pointer;
+    color: #e0fbfc;
+    font: 3vh Raleway;
+    margin: 2vh;
+}
+
+#animateButton:hover {
+    color: #15cbd1;
+    border-color: #6aa6c8;
+}
+
+#cardinalSplineTensionSlider {
+    background: #ee6c4d;
+    width: 8vw;
+    height: 2vh;
+    border-radius: 8px;
+    outline: none;
+    margin: 0;
+    margin-left: 0.35vw;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(./assets/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Mono;
+    src: url(./assets/RobotoMono-Regular.ttf);
+}

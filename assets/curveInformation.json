@@ -1,0 +1,495 @@
+{
+    "lines": {
+        "listName": "Lines",
+        "children": {
+            "lerp": {
+                "curveType": "lerp",
+                "infoTitle": "Lerp",
+                "listName": "Lerp",
+                "minParts": 2,
+                "maxParts": 2,
+                "content": [
+                    "The lerp (linear interpolation) function takes two points and some value t between 0 and 1, and produces a new point on a straight line between them. The new point's position is determined by the value of t, where 0 represents the first point, 1 represents the second point, and values in between represent points somewhere between the two. By tracing this point as t moves from 0 to 1, we can produce a line segment between the two points."
+                ],
+                "points": [
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 3) * 2"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 3"
+                    }
+                ]
+            },
+            "linearSpline": {
+                "curveType": "lerp",
+                "infoTitle": "Linear Spline",
+                "listName": "Linear Spline",
+                "minParts": 3,
+                "maxParts": 21,
+                "content": [
+                    "By connecting several lerp functions at points called knots, a curve can be created that interpolates between any number of points, called control points. This is the simplest type of curve that can be created. The value t will exceed 1 at some points on the curve - the maximum is now equal to the number of segments that make up the curve. The integer portion of t represents which segment the point lies on, and the fractional part represents the value of t within that segment.",
+                    "<br><br>Although this spline seems trivially simple, it is very useful if the smoothness of the curve isn't relevant, or if there are so many samples taken that the curve is effectively smooth anyway. For example, EVERY curve displayed in this app is actually a linear spline with 500 points under the hood."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "w / 7",
+                        "y": "(h / 5) * 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            }
+        }
+    },
+    "hermite": {
+        "listName": "Hermite",
+        "children": {
+            "hermiteCurve": {
+                "curveType": "hermite",
+                "listName": "Hermite Curve",
+                "infoTitle": "Hermite Curve",
+                "minParts": 2,
+                "maxParts": 2,
+                "content": [
+                    "The Hermite curve is one way that we can interpolate between points that provides more control than a linear spline. Instead of specifying only the position at each point, the velocity is also specified at each of these points. Now, not only does the curve interpolate between positions, but also velocities, allowing for a much smoother curve.",
+                    "<br><br>An arrow has been included in the animation that represents the current velocity of the point. Note that the arrow perfectly aligns with the velocity arrows at each specified point, and smoothly transitions between them. However, the velocity will not be a perfect linear interpolation between the two - this is because the point must always have a velocity appropriate for travelling to the next point."
+                ],
+                "points": [
+                    {
+                        "x": "w / 5",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 20) * 11",
+                        "y": "(h / 7) * 3"
+                    },
+                    {
+                        "x": "(w / 6) * 5",
+                        "y": "(h / 6) * 5"
+                    }
+                ]
+            },
+            "hermiteSpline": {
+                "curveType": "hermite",
+                "listName": "Hermite Spline",
+                "infoTitle": "Hermite Spline",
+                "minParts": 2,
+                "maxParts": 11,
+                "content": [
+                    "Hermite curves can be linked together in the same way as shown with the linear spline to interpolate between any number of points."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "w / 7",
+                        "y": "(h / 5) * 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            },
+            "cardinalSpline": {
+                "curveType": "cardinal",
+                "listName": "Cardinal Splines & Catmull-Rom",
+                "infoTitle": "Cardinal Splines & Catmull-Rom",
+                "minParts": 1,
+                "maxParts": 20,
+                "content": [
+                    "The cardinal spline is a variation of the Hermite spline where instead of velocities being specified manually, they are automatically calculated. The velocity at any given control point is equal to the vector from the control point before it to the control point after it, scaled by a constant factor from 0 to 1 called tension - this can be edited by the slider at the bottom right.",
+                    "<br><br>The special case in which the tension is set to 0.5 (set by default here) is known as the Catmull-Rom spline, which is a very common spline used for animation due to its smoothness and ease of use.",
+                    "<br><br>Notice that the two points at the end are not connected to the curve - this is because no velocity can be calculated for them, as there is no point on the other side. However, they do still influence the curve, as they are used to calculate the velocity at their adjacent point.",
+                    "<br><br>Note also that when the tension is set to 0, the curve's shape is identical to a linear spline with the same control points - this is because the velocity at each point is set to 0, so only position can be used to interpolate between these points."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "w / 7",
+                        "y": "(h / 5) * 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            }
+        }
+    },
+    "bezier": {
+        "listName": "Bézier Curves",
+        "children": {
+            "quadraticBezier": {
+                "curveType": "bezierCurve",
+                "infoTitle": "Quadratic Bézier",
+                "listName": "Quadratic",
+                "minParts": 3,
+                "maxParts": 3,
+                "content": [
+                    "By combining multiple lerps into one function, curves can be constructed in an intuitive way. In this example, two lerp functions are used on three points, called control points, to create a new set of two points that the lerp function can be used on. By using lerp on these two new points and tracing the output, a smooth curve is created. This method is known as De Casteljau's algorithm."
+                ],
+                "points": [
+                    {
+                        "x": "w / 2 - c / 2",
+                        "y": "h / 2 + (c * 1.73205) / 4"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "h / 2 - (c * 1.73205) / 4"
+                    },
+                    {
+                        "x": "w / 2 + c / 2",
+                        "y": "h / 2 + (c * 1.73205) / 4"
+                    }
+                ]
+            },
+            "cubicBezier": {
+                "curveType": "bezierCurve",
+                "infoTitle": "Cubic Bézier",
+                "listName": "Cubic",
+                "minParts": 4,
+                "maxParts": 4,
+                "content": [
+                    "In a similar way to the quadratic Bézier curve, lerp is used on four control points in order to create three new points, upon which the same process can be created. Using four control points allows for much greater control over the direction of the curve, and so this curve is used in many applications."
+                ],
+                "points": [
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 10) * 7"
+                    },
+                    {
+                        "x": "w / 4 + w / 6",
+                        "y": "(h / 10) * 3"
+                    },
+                    {
+                        "x": "w / 4 + w / 3",
+                        "y": "(h / 10) * 3"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "(h / 10) * 7"
+                    }
+                ]
+            },
+            "highDegreeBezier": {
+                "curveType": "bezierCurve",
+                "infoTitle": "Higher Degree Bézier Curves",
+                "listName": "Higher Degrees",
+                "minParts": 5,
+                "maxParts": 21,
+                "content": [
+                    "Although the cubic Bézier curve is the most commonly used, it is possible to create higher degree Bézier curves by using more control points. The more control points used, the more control can be exerted over the curve, and the more complex the curve can be. However, as the number of control points used increases, so too does the number of calculations need to be performed, and so more processing power is required. In addition, the curve becomes much more difficult to construct due to the fact that it is only guaranteed to pass through the first and last control points, so these curves are not often used."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "w / 7",
+                        "y": "(h / 5) * 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            }
+        }
+    },
+    "bezierSpline": {
+        "listName": "Bézier Splines",
+        "children": {
+            "bezierSplineIntro": {
+                "curveType": "bezierSpline",
+                "infoTitle": "Bézier Splines",
+                "listName": "Introduction",
+                "minParts": 2,
+                "maxParts": 7,
+                "content": [
+                    "By connecting several Bézier curves, a new curve, called a Bézier spline, is created. This example configuration of control points shown is the same as was used for the higher-degree Bézier curves, but note some important differences:",
+                    "<ul><li>The curve is guaranteed to pass through not only the first and last control points, but every fourth control point - these control points are called knots, and this ability to control exactly where the curve goes is called local control</li><li>The curve is no longer guaranteed to be smooth</li><li>Repositioning one control point no longer changes the entire curve</li></ul>",
+                    "For clarity, the points that the lerp function is using to create this curve are no longer all connected. Instead, control points are connected to their adjacent knot or endpoint. Note that although the animation will also no longer display the lerp functions, the calculations are still the same."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "w / 7",
+                        "y": "(h / 5) * 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 5"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            },
+            "smootheningSplines": {
+                "curveType": "bezierSpline",
+                "infoTitle": "Smoothening Bézier Splines",
+                "listName": "Smooth Splines",
+                "minParts": 2,
+                "maxParts": 7,
+                "content": [
+                    "Although the Bézier spline provides local control, it is not guaranteed to be smooth. These corners can be smoothed out by forcing the two control points around each knot to be aligned in opposite directions.",
+                    "<br><br>However, watch as the animation passes the second knot. As u increases, the velocity changes instantly - an arrow representing velocity has been added to the animation in order to demonstrate this. For clarity, the velocity arrow has been scaled by a factor of 0.2."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 24) * 5",
+                        "y": "(h / 24) * 13"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "(h / 7) * 5"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 8) * 5",
+                        "y": "(h / 112) * 15"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            },
+            "smootherVelocity": {
+                "curveType": "bezierSpline",
+                "infoTitle": "Smoother Velocity",
+                "listName": "Smoother Velocity",
+                "minParts": 2,
+                "maxParts": 7,
+                "content": [
+                    "To eliminate the sudden change in velocity, the control points can be constrained in an additional way. Here, each control point is perfectly mirrored across its adjacent knot, so that it has the opposite angle, but the same magnitude.",
+                    "<br><br>Although there is a jump in the rate of change of the velocity (acceleration), it is not possible to make it change smoothly without losing local control over the spline."
+                ],
+                "points": [
+                    {
+                        "x": "w / 3",
+                        "y": "h / 3"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "h / 6"
+                    },
+                    {
+                        "x": "w / 6",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 24) * 5",
+                        "y": "(h / 24) * 13"
+                    },
+                    {
+                        "x": "w / 4",
+                        "y": "(h / 6) * 5"
+                    },
+                    {
+                        "x": "w / 2",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 5) * 3",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 10) * 7",
+                        "y": "h / 4"
+                    },
+                    {
+                        "x": "(w / 4) * 3",
+                        "y": "h / 2"
+                    },
+                    {
+                        "x": "(w / 7) * 6",
+                        "y": "(h / 5) * 2"
+                    }
+                ]
+            }
+        }
+    }
+}

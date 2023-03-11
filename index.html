@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Spline</title>
+        <link rel="stylesheet" href="main.css" />
+        <script src="math.js" defer></script>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div id="header">
+            <h1 id="title">Spline</h1>
+        </div>
+        <div id="mainContainer">
+            <div id="presetMenu" class="sidebar">
+                <ul id="presetList"></ul>
+            </div>
+            <canvas id="canvas"></canvas>
+            <div id="showControlPointsContainer" style="display: none">
+                <label>
+                    <input type="checkbox" id="showControlPointsCheckbox" onchange="sceneChanged = true;" checked />
+                    <span class="checkmark"></span>
+                    <span id="showControlPointsLabel"></span>
+                </label>
+            </div>
+            <div id="controls">Drag points to move them</div>
+            <div id="bottomRightContent" style="display: none"></div>
+            <div id="infoBox" class="sidebar">
+                <div id="informationContainer">
+                    <h2 id="infoTitle">Lerp</h2>
+                    <div id="infoContent"></div>
+                </div>
+                <div id="animationBox">
+                    <div id="posValueDisplay">t=1.00</div>
+                    <input id="posValueSlider" type="range" min="0" max="1" value="1" step="0.01" />
+                    <button id="animateButton">Animate</button>
+                </div>
+            </div>
+        </div>
+        <datalist id="tensionCatmullRom">
+            <option value="0.5"></option>
+        </datalist>
+    </body>
+</html>
